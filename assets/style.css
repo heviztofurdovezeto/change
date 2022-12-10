@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.form-label {
+    margin-bottom: 0.125rem;
+}
+
+.form-control {
+    border-color: #4f4f4f;
+}
+
+input {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    text-align: right;
+}
+
+/* odd: páratlan */
+.money_input:nth-child(odd) input {
+    background-color: lightgray;
+    color: black;
+}
+
+.money_input:nth-child(odd) input::placeholder {
+    color: black;
+}
+
+/* even: páros */
+.money_input:nth-child(even) input {
+    background-color: darkgray;
+    color: white;
+}
+
+.money_input:nth-child(even) input::placeholder {
+    color: white;
+}
