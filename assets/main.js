@@ -44,9 +44,11 @@ const readLocalStorge = (field) => {
 
 // read LocalStorage loop
 for (let key in moneyInSafe) {
-    if (key.includes('f')) {
-        let field = key;
-        readLocalStorge(field);
+    if (Object.hasOwn(safe, key)) {
+        if (key.includes('f')) {
+            let field = key;
+            readLocalStorge(field);
+        }
     }
 };
 
@@ -65,9 +67,11 @@ const addPlaceholder = (field, value, multiplier) => {
 // addPlaceholders loop w/ arrow function
 const addPlaceholdersLoopFunction = () => {
     for (let key in moneyInSafe) {
-        if (key.includes('f')) {
-            let field = document.getElementById(key);
-            addPlaceholder(field, moneyInSafe[key], multiplier[key]);
+        if (Object.hasOwn(safe, key)) {
+            if (key.includes('f')) {
+                let field = document.getElementById(key);
+                addPlaceholder(field, moneyInSafe[key], multiplier[key]);
+            }
         }
     };
 };
