@@ -20,11 +20,10 @@
             "purpose": "maskable"
         }
     ],
-    "id": "/?source=pwa",
-    "start_url": "/?source=pwa/change",
+    "start_url": "../change",
     "background_color": "#3367D6",
     "display": "standalone",
-    "scope": "./change/",
+    "scope": "/change/",
     "theme_color": "#3367D6",
     "description": "Egyszerű váltópénz nyilvántartó alkalmazás"
 }
