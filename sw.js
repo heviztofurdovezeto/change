@@ -9,9 +9,7 @@ const filesToCache = [
     '/images/icons-192.png',
     '/images/icons-512.png',
     '/images/icons-vector.svg',
-    '/favicon72.png',
-    '/manifest.json',
-    '/sw.js'
+    '/favicon72.png'
 ];
 
 self.addEventListener('install', event => {
