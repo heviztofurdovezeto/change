@@ -3,7 +3,7 @@
 // Registering Service Worker
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js');
-}
+};
 
 const sumTotal = document.querySelector('.sumTotal');
 const incomeBtn = document.querySelector('.income');
