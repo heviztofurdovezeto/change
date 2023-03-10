@@ -8,6 +8,7 @@ if ("serviceWorker" in navigator) {
 const sumTotal = document.querySelector(".sumTotal");
 const incomeBtn = document.querySelector(".income");
 const outgoBtn = document.querySelector(".outgo");
+const tresauryBtn = document.querySelector(".tresaury");
 
 const multiplier = {
   f1h: 100,
@@ -86,12 +87,14 @@ addPlaceholdersLoopFunction();
 sumTotal.textContent = `${moneyInSafe.sumTotal}`;
 
 // inOrOut function to handle incoming and outgoing actions, and localStorage.setItem
-const inOrOut = (safe, inout) => {
+const inOrOut = (safe, ftresaury, inout) => {
   for (let key in safe) {
     if (Object.hasOwn(safe, key)) {
       if (key.includes("f")) {
         const fieldValue = document.querySelector(`.${key}`).value;
-        inout
+        ftresaury
+          ? (safe[key] = +fieldValue)
+          : inout
           ? (safe[key] = safe[key] + +fieldValue)
           : (safe[key] = safe[key] - +fieldValue);
         localStorage.setItem(key, JSON.stringify(safe[key]));
@@ -102,14 +105,20 @@ const inOrOut = (safe, inout) => {
 };
 
 const tresaury = () => {
-  inOrOut(moneyInSafe, true);
+  inOrOut(moneyInSafe, false, true);
   history.go();
 };
 
 const cashiers = () => {
-  inOrOut(moneyInSafe, false);
+  inOrOut(moneyInSafe, false, false);
+  history.go();
+};
+
+const fullTresaury = () => {
+  inOrOut(moneyInSafe, true);
   history.go();
 };
 
 incomeBtn.addEventListener("click", tresaury);
 outgoBtn.addEventListener("click", cashiers);
+tresauryBtn.addEventListener("click", fullTresaury);
